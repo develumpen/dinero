@@ -1,0 +1,12 @@
+<% content_for :title, @account.name %>
+
+<div id="<%= dom_id @account %>">
+  <h1><%= @account.name %></h1>
+  <p><%= @account.description %></p>
+</div>
+
+
+<div class="account-meta">
+  <%= link_to "Edit this account", edit_account_path(@account) %> |
+  <%= button_to "Destroy this account", @account, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+</div>

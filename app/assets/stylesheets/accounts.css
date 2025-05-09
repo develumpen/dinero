@@ -1,0 +1,17 @@
+.accounts-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.account-in-list {
+  padding: .5rem;
+  background-color: #eee;
+}
+
+.account-meta {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
