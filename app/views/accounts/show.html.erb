@@ -5,8 +5,8 @@
   <p><%= @account.description %></p>
 </div>
 
-
 <div class="account-meta">
+  <%= link_to "Imports", account_imports_path(@account) %> |
   <%= link_to "Edit this account", edit_account_path(@account) %> |
   <%= button_to "Destroy this account", @account, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 </div>

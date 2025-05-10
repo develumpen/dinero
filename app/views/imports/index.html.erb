@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Imports" %>
+
+<h1><%= link_to @account.name, @account %></h1>
+
+<div class="import-form">
+  <%= form_with(model: [@account, @import]) do |form| %>
+    <%= form.file_field :file %>
+    <%= form.submit "Upload file" %>
+  <% end %>
+</div>
+
+<div id="imports">
+  <table>
+    <thead>
+      <tr>
+        <th>Uploaded at</th>
+        <th>Filename</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @imports.each do |import| %>
+        <tr>
+          <td><%= link_to import.created_at, import %></td>
+          <td><%= link_to import.file.filename, import %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
