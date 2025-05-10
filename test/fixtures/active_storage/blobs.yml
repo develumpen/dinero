@@ -1,0 +1,1 @@
+checking_file_blob: <%= ActiveStorage::FixtureSet.blob filename: "transactions.csv", service_name: "test" %>
