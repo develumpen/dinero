@@ -25,6 +25,7 @@ class CsvImportsController < ApplicationController
     @csv_import = CsvImport.new(csv_import_params)
 
     if @csv_import.save
+      CsvImportSetMetadataJob.perform_later(@csv_import.id)
       redirect_to @csv_import, notice: "Archivo CSV importado con éxito"
     else
       render :new, status: :unprocessable_entity

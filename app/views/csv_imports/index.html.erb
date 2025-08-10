@@ -4,6 +4,6 @@
 
 <ul>
   <% @csv_imports.each do |import| %>
-    <li><%= link_to import.created_at, import %></li>
+    <li><%= link_to import.created_at, import %> <%= " - #{import.transactions_count} transacciones" if import.transactions_count %></li>
   <% end %>
 </ul>
