@@ -1,18 +1,22 @@
-<table class="table">
-  <thead>
-    <tr>
-      <% @csv_headers.each do |header| %>
-        <th><%= header %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @csv_rows.each do |columns| %>
+<div class="imports">
+  <h1><%= @csv_import.account.name %></h1>
+
+  <table class="table">
+    <thead>
       <tr>
-        <% columns.each do |column| %>
-          <td><%= column %></td>
+        <% @csv_headers.each do |header| %>
+          <th><%= header %></th>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @csv_rows.each do |columns| %>
+        <tr>
+          <% columns.each do |column| %>
+            <td><%= column %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

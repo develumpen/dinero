@@ -19,6 +19,7 @@ class CsvImportsController < ApplicationController
 
   def new
     @csv_import = CsvImport.new
+    @accounts = Account.all.collect { |a| [ a.name, a.id ] }
   end
 
   def create
@@ -28,13 +29,14 @@ class CsvImportsController < ApplicationController
       CsvImportSetMetadataJob.perform_later(@csv_import.id)
       redirect_to @csv_import, notice: "Archivo CSV importado con éxito"
     else
+      @accounts = Account.all.collect { |a| [ a.name, a.id ] }
       render :new, status: :unprocessable_entity
     end
   end
 
   private
     def csv_import_params
-      params.expect(csv_import: [ :file ])
+      params.expect(csv_import: [ :file, :account_id ])
     end
 
     def set_csv_import

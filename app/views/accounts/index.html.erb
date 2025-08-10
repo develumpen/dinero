@@ -1,0 +1,14 @@
+<h1>Cuentas</h1>
+
+<div>
+  <%= link_to "Añadir cuenta", new_account_path %>
+</div>
+
+<ul>
+  <% @accounts.each do |account| %>
+    <li>
+      <h3><%= link_to account.name, account %></h3>
+      <%= account.description%>
+    </li>
+  <% end %>
+</ul>

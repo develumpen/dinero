@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_10_003905) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_10_225141) do
+  create_table "accounts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -45,8 +52,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_10_003905) do
     t.date "first_transaction_date"
     t.date "last_transaction_date"
     t.integer "transactions_count"
+    t.integer "account_id", null: false
+    t.index ["account_id"], name: "index_csv_imports_on_account_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "csv_imports", "accounts"
 end
