@@ -1,4 +1,12 @@
 <%= form_with(model: @csv_import) do |form| %>
-  <%= form.file_field :file %>
+  <%= @csv_import.errors.full_messages.join("\n") %>
+
+  <div>
+    <%= form.label :account_id %>
+    <%= form.select :account_id, @accounts, include_blank: true %>
+  </div>
+  <div>
+    <%= form.file_field :file %>
+  </div>
   <%= form.submit %>
 <% end %>
