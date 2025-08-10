@@ -1,0 +1,9 @@
+<div>
+  <%= link_to "Importar archivo CSV", new_csv_import_path %>
+</div>
+
+<ul>
+  <% @csv_imports.each do |import| %>
+    <li><%= link_to import.created_at, import %> <%= " - #{import.transactions_count} transacciones" if import.transactions_count %></li>
+  <% end %>
+</ul>
