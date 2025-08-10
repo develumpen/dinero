@@ -1,0 +1,11 @@
+<div id="<%= dom_id(@account) %>" class="account">
+  <h1><%= @account.name %></h1>
+  <% if @account.description %>
+    <p><%= @account.description %></p>
+  <% end %>
+
+  <div class="meta">
+    <%= button_to "Eliminar", @account, method: :delete, data: { turbo_confirm: "¿Seguro que quieres eliminar esta cuenta?" } %>
+    <%= link_to "Editar", edit_account_path %>
+  </div>
+</div>
